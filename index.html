@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jumlah Penduduk Kabupaten Bandung Tahun 2022</title>
+    <!-- Import Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-image: url('https://akcdn.detik.net.id/community/media/visual/2021/09/05/grafika-cikole-lembang_169.jpeg?w=700&q=90');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            color: #000;
+        }
+
+        header {
+            background-color: rgba(179, 171, 171, 0.85);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 3px solid #004d40;
+        }
+
+        header img {
+            width: 70px;
+            margin-right: 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #004d40;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        main {
+            background-color: rgba(255, 255, 255, 0.92);
+            margin: 30px auto;
+            padding: 25px;
+            width: 85%;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        p.deskripsi {
+            text-align: center;
+            font-size: 15px;
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .content-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 25px;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.3s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #e0dada;
+            color: #000;
+            font-size: 14px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 0 8px rgba(0,0,0,0.15);
+        }
+
+        th, td {
+            padding: 8px 10px;
+            text-align: center;
+            border: 1px solid #000;
+        }
+
+        th {
+            background-color: #004d40;
+            color: white;
+            font-weight: 600;
+        }
+
+        .table-container {
+            flex: 1 1 48%;
+            min-width: 350px;
+            animation: fadeInUp 1.4s ease forwards;
+        }
+
+        .chart-container {
+            flex: 1 1 48%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeInUp 1.6s ease forwards;
+        }
+
+        select, button {
+            background-color: #004d40;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            margin-top: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        select {
+            background-color: #00796b;
+        }
+
+        button:hover {
+            background-color: #00796b;
+        }
+
+        canvas {
+            margin-top: 15px;
+            max-width: 100%;
+            height: 280px !important;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 77, 64, 0.9);
+            padding: 15px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .content-flex {
+                flex-direction: column;
+                align-items: center;
+            }
+            .table-container, .chart-container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Lambang_Kabupaten_Bandung%2C_Jawa_Barat%2C_Indonesia.svg/600px-Lambang_Kabupaten_Bandung%2C_Jawa_Barat%2C_Indonesia.svg.png" alt="Logo Kabupaten Bandung">
+    <h1>Data Jumlah Penduduk Kabupaten Bandung Tahun 2022</h1>
+</header>
+
+<main>
+    <p class="deskripsi">
+        Kabupaten Bandung terletak di Provinsi Jawa Barat dengan ibu kota di Kecamatan Soreang. 
+        Kabupaten ini memiliki luas wilayah sekitar 1.762 km² dan terbagi menjadi 31 kecamatan serta 280 desa dan kelurahan. 
+        Data berikut menunjukkan jumlah penduduk menurut kelompok umur dan jenis kelamin pada tahun 2022.
+    </p>
+
+    <div class="content-flex">
+        <!-- Bagian Tabel -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kelompok Umur</th>
+                        <th>Laki-Laki (Ribu)</th>
+                        <th>Perempuan (Ribu)</th>
+                        <th>Total (Ribu)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>0 - 4</td><td>142.6</td><td>134.4</td><td>277.1</td></tr>
+                    <tr><td>5 - 9</td><td>172.3</td><td>161.7</td><td>334.0</td></tr>
+                    <tr><td>10 - 14</td><td>180.3</td><td>169.9</td><td>350.2</td></tr>
+                    <tr><td>15 - 19</td><td>155.1</td><td>149.5</td><td>304.6</td></tr>
+                    <tr><td>20 - 24</td><td>175.0</td><td>166.9</td><td>341.9</td></tr>
+                    <tr><td>25 - 29</td><td>160.6</td><td>149.1</td><td>309.7</td></tr>
+                    <tr><td>30 - 34</td><td>146.5</td><td>139.5</td><td>285.9</td></tr>
+                    <tr><td>35 - 39</td><td>131.7</td><td>124.2</td><td>255.8</td></tr>
+                    <tr><td>40 - 44</td><td>149.8</td><td>146.2</td><td>296.0</td></tr>
+                    <tr><td>45 - 49</td><td>136.6</td><td>138.0</td><td>274.6</td></tr>
+                    <tr><td>50 - 54</td><td>118.0</td><td>118.0</td><td>236.0</td></tr>
+                    <tr><td>55 - 59</td><td>94.9</td><td>93.7</td><td>188.6</td></tr>
+                    <tr><td>60 - 64</td><td>71.1</td><td>71.7</td><td>142.8</td></tr>
+                    <tr><td>65 - 69</td><td>50.9</td><td>50.5</td><td>101.4</td></tr>
+                    <tr><td>70 - 74</td><td>35.3</td><td>34.4</td><td>69.7</td></tr>
+                    <tr><td>>75</td><td>33.3</td><td>38.2</td><td>71.4</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Bagian Grafik -->
+        <div class="chart-container">
+            <label for="chartType"><b>Pilih Jenis Grafik:</b></label><br>
+            <select id="chartType">
+                <option value="bar">Diagram Batang</option>
+                <option value="line">Diagram Garis</option>
+            </select>
+            <button onclick="tampilkanGrafik()">Tampilkan Grafik</button>
+            <canvas id="chartPenduduk"></canvas>
+        </div>
+    </div>
+</main>
+
+<footer>
+    &copy; 2025 | Data Sumber: BPS Kabupaten Bandung, 2022
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    let chartInstance = null;
+
+    function tampilkanGrafik() {
+        const ctx = document.getElementById('chartPenduduk').getContext('2d');
+        const chartType = document.getElementById('chartType').value;
+
+        const labels = ['0-4', '5-9', '10-14', '15-19', '20-24', '25-29', '30-34',
+                        '35-39', '40-44', '45-49', '50-54', '55-59', '60-64',
+                        '65-69', '70-74', '>75'];
+
+        const dataLaki = [142.6, 172.3, 180.3, 155.1, 175.0, 160.6, 146.5, 131.7, 149.8, 136.6, 118.0, 94.9, 71.1, 50.9, 35.3, 33.3];
+        const dataPerempuan = [134.4, 161.7, 169.9, 149.5, 166.9, 149.1, 139.5, 124.2, 146.2, 138.0, 118.0, 93.7, 71.7, 50.5, 34.4, 38.2];
+
+        if (chartInstance) chartInstance.destroy();
+
+        chartInstance = new Chart(ctx, {
+            type: chartType,
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Laki-Laki (ribu)',
+                        data: dataLaki,
+                        backgroundColor: '#0D47A1',
+                        borderColor: '#0D47A1',
+                        borderWidth: 1.2,
+                        barThickness: 12,
+                        fill: chartType === 'line' ? false : true
+                    },
+                    {
+                        label: 'Perempuan (ribu)',
+                        data: dataPerempuan,
+                        backgroundColor: '#E65100',
+                        borderColor: '#E65100',
+                        borderWidth: 1.2,
+                        barThickness: 12,
+                        fill: chartType === 'line' ? false : true
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: { duration: 1300, easing: 'easeOutCubic' },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Distribusi Penduduk Berdasarkan Kelompok Umur dan Jenis Kelamin (2022)',
+                        font: { size: 14, family: 'Inter', weight: 600 }
+                    },
+                    legend: { position: 'top' }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Jumlah Penduduk (ribu)' }
+                    },
+                    x: {
+                        title: { display: true, text: 'Kelompok Umur' }
+                    }
+                }
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
