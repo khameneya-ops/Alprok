@@ -1,157 +1,173 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jumlah Penduduk Kabupaten Bandung Tahun 2022</title>
-    <!-- Import Font Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!DOCTYPE html> <html lang="id"> <head>
+    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Jumlah Penduduk Kabupaten Bandung Tahun 2022</title> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* Mengatur gaya dasar untuk seluruh halaman (body) */
         body {
-            font-family: 'Inter', sans-serif;
-            background-image: url('https://akcdn.detik.net.id/community/media/visual/2021/09/05/grafika-cikole-lembang_169.jpeg?w=700&q=90');
-            background-size: cover;
-            background-attachment: fixed;
-            margin: 0;
-            padding: 0;
-            color: #000;
+            font-family: 'Inter', sans-serif; /* Menggunakan font Inter, dengan fallback sans-serif */
+            background-image: url('https://akcdn.detik.net.id/community/media/visual/2021/09/05/grafika-cikole-lembang_169.jpeg?w=700&q=90'); /* Gambar latar belakang */
+            background-size: cover; /* Gambar latar akan menutupi seluruh area */
+            background-attachment: fixed; /* Gambar latar tidak ikut scroll */
+            margin: 0; /* Menghilangkan margin default */
+            padding: 0; /* Menghilangkan padding default */
+            color: #000; /* Warna teks default (hitam) */
         }
 
+        /* Mengatur gaya untuk elemen <header> */
         header {
-            background-color: rgba(179, 171, 171, 0.85);
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            border-bottom: 3px solid #004d40;
+            background-color: rgba(179, 171, 171, 0.85); /* Latar belakang semi-transparan */
+            padding: 10px 20px; /* Padding atas/bawah 10px, kiri/kanan 20px */
+            display: flex; /* Menggunakan layout flexbox */
+            align-items: center; /* Menyelaraskan item secara vertikal di tengah */
+            border-bottom: 3px solid #004d40; /* Garis bawah solid berwarna hijau tua */
         }
 
+        /* Mengatur gaya untuk gambar di dalam <header> (logo) */
         header img {
-            width: 70px;
-            margin-right: 15px;
+            width: 70px; /* Lebar logo */
+            margin-right: 15px; /* Jarak kanan dari logo ke teks */
         }
 
+        /* Mengatur gaya untuk <h1> (judul) di dalam <header> */
         header h1 {
-            margin: 0;
-            color: #004d40;
-            font-weight: 700;
-            font-size: 20px;
+            margin: 0; /* Menghilangkan margin default */
+            color: #004d40; /* Warna teks hijau tua */
+            font-weight: 700; /* Ketebalan font (bold) */
+            font-size: 20px; /* Ukuran font */
         }
 
+        /* Mengatur gaya untuk elemen <main> (konten utama) */
         main {
-            background-color: rgba(255, 255, 255, 0.92);
-            margin: 30px auto;
-            padding: 25px;
-            width: 85%;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            background-color: rgba(255, 255, 255, 0.92); /* Latar belakang putih semi-transparan */
+            margin: 30px auto; /* Margin atas/bawah 30px, kiri/kanan otomatis (tengah) */
+            padding: 25px; /* Padding di dalam kontainer main */
+            width: 85%; /* Lebar kontainer */
+            border-radius: 12px; /* Sudut melengkung */
+            box-shadow: 0 0 10px rgba(0,0,0,0.3); /* Efek bayangan */
         }
 
+        /* Mengatur gaya untuk paragraf dengan kelas 'deskripsi' */
         p.deskripsi {
-            text-align: center;
-            font-size: 15px;
-            margin-bottom: 25px;
-            line-height: 1.7;
-            font-weight: 400;
+            text-align: center; /* Teks rata tengah */
+            font-size: 15px; /* Ukuran font */
+            margin-bottom: 25px; /* Jarak bawah */
+            line-height: 1.7; /* Jarak antar baris */
+            font-weight: 400; /* Ketebalan font (normal) */
         }
 
+        /* Kontainer flex untuk tabel dan grafik */
         .content-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 25px;
-            flex-wrap: wrap;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1.3s ease forwards;
+            display: flex; /* Menggunakan layout flexbox */
+            justify-content: space-between; /* Memberi jarak merata antar item */
+            align-items: flex-start; /* Menyelaraskan item ke atas */
+            gap: 25px; /* Jarak antar item flex */
+            flex-wrap: wrap; /* Item akan pindah ke baris baru jika tidak muat */
+            opacity: 0; /* Awalnya transparan (untuk animasi) */
+            transform: translateY(30px); /* Awalnya digeser ke bawah 30px (untuk animasi) */
+            animation: fadeInUp 1.3s ease forwards; /* Menerapkan animasi 'fadeInUp' */
         }
 
+        /* Definisi animasi 'fadeInUp' */
         @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            to { /* Status akhir animasi */
+                opacity: 1; /* Menjadi terlihat penuh */
+                transform: translateY(0); /* Kembali ke posisi semula (0px) */
             }
         }
 
+        /* Mengatur gaya untuk <table> */
         table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: #e0dada;
-            color: #000;
-            font-size: 14px;
-            border-radius: 6px;
-            overflow: hidden;
-            box-shadow: 0 0 8px rgba(0,0,0,0.15);
+            width: 100%; /* Lebar tabel 100% dari kontainernya */
+            border-collapse: collapse; /* Menghilangkan jarak antar border sel */
+            background-color: #e0dada; /* Warna latar belakang tabel */
+            color: #000; /* Warna teks tabel */
+            font-size: 14px; /* Ukuran font tabel */
+            border-radius: 6px; /* Sudut melengkung */
+            overflow: hidden; /* Memastikan sudut melengkung diterapkan */
+            box-shadow: 0 0 8px rgba(0,0,0,0.15); /* Bayangan tipis */
         }
 
+        /* Mengatur gaya untuk sel header (th) dan sel data (td) */
         th, td {
-            padding: 8px 10px;
-            text-align: center;
-            border: 1px solid #000;
+            padding: 8px 10px; /* Padding di dalam sel */
+            text-align: center; /* Teks rata tengah */
+            border: 1px solid #000; /* Border hitam tipis */
         }
 
+        /* Mengatur gaya khusus untuk sel header (th) */
         th {
-            background-color: #004d40;
-            color: white;
-            font-weight: 600;
+            background-color: #004d40; /* Latar belakang hijau tua */
+            color: white; /* Teks putih */
+            font-weight: 600; /* Ketebalan font (semi-bold) */
         }
 
+        /* Mengatur gaya untuk kontainer tabel */
         .table-container {
-            flex: 1 1 48%;
-            min-width: 350px;
-            animation: fadeInUp 1.4s ease forwards;
+            flex: 1 1 48%; /* Flex-grow, flex-shrink, flex-basis (mengambil ~48% lebar) */
+            min-width: 350px; /* Lebar minimum sebelum pindah baris */
+            animation: fadeInUp 1.4s ease forwards; /* Animasi fade-in (sedikit lebih lambat) */
         }
 
+        /* Mengatur gaya untuk kontainer grafik */
         .chart-container {
-            flex: 1 1 48%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            animation: fadeInUp 1.6s ease forwards;
+            flex: 1 1 48%; /* Flex-grow, flex-shrink, flex-basis (mengambil ~48% lebar) */
+            text-align: center; /* Teks rata tengah */
+            display: flex; /* Menggunakan flexbox */
+            flex-direction: column; /* Item diatur secara vertikal */
+            align-items: center; /* Menyelaraskan item ke tengah secara horizontal */
+            animation: fadeInUp 1.6s ease forwards; /* Animasi fade-in (paling lambat) */
         }
 
+        /* Mengatur gaya untuk <select> (dropdown) dan <button> */
         select, button {
-            background-color: #004d40;
-            color: white;
-            border: none;
-            padding: 8px 14px;
-            margin-top: 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            transition: 0.3s;
+            background-color: #004d40; /* Latar belakang hijau tua */
+            color: white; /* Teks putih */
+            border: none; /* Tanpa border */
+            padding: 8px 14px; /* Padding */
+            margin-top: 10px; /* Jarak atas */
+            border-radius: 8px; /* Sudut melengkung */
+            cursor: pointer; /* Mengubah kursor menjadi tangan saat hover */
+            font-family: 'Inter', sans-serif; /* Menggunakan font Inter */
+            font-weight: 500; /* Ketebalan font (medium) */
+            transition: 0.3s; /* Transisi halus untuk hover */
         }
 
+        /* Gaya khusus untuk <select> */
         select {
-            background-color: #00796b;
+            background-color: #00796b; /* Warna latar sedikit lebih terang */
         }
 
+        /* Efek hover pada <button> */
         button:hover {
-            background-color: #00796b;
+            background-color: #00796b; /* Warna berubah saat di-hover */
         }
 
+        /* Mengatur gaya untuk <canvas> (tempat grafik digambar) */
         canvas {
-            margin-top: 15px;
-            max-width: 100%;
-            height: 280px !important;
+            margin-top: 15px; /* Jarak atas */
+            max-width: 100%; /* Lebar maksimum 100% dari kontainernya */
+            height: 280px !important; /* Memaksa tinggi canvas (penting agar tidak terlalu besar) */
         }
 
+        /* Mengatur gaya untuk <footer> */
         footer {
-            text-align: center;
-            color: white;
-            background-color: rgba(0, 77, 64, 0.9);
-            padding: 15px;
-            font-size: 14px;
-            font-weight: 500;
-            margin-top: 40px;
+            text-align: center; /* Teks rata tengah */
+            color: white; /* Teks putih */
+            background-color: rgba(0, 77, 64, 0.9); /* Latar belakang hijau tua semi-transparan */
+            padding: 15px; /* Padding */
+            font-size: 14px; /* Ukuran font */
+            font-weight: 500; /* Ketebalan font */
+            margin-top: 40px; /* Jarak atas dari konten <main> */
         }
 
+        /* Media Query: Aturan CSS khusus untuk layar dengan lebar maks 768px (tablet/ponsel) */
         @media (max-width: 768px) {
+            /* Mengubah layout flex menjadi vertikal */
             .content-flex {
-                flex-direction: column;
-                align-items: center;
+                flex-direction: column; /* Menumpuk item secara vertikal */
+                align-items: center; /* Menengahkan tumpukan */
             }
+            /* Kontainer tabel dan grafik dibuat 100% lebar */
             .table-container, .chart-container {
                 width: 100%;
             }
@@ -173,19 +189,17 @@
     </p>
 
     <div class="content-flex">
-        <!-- Bagian Tabel -->
+        
         <div class="table-container">
             <table>
-                <thead>
-                    <tr>
+                <thead> <tr>
                         <th>Kelompok Umur</th>
                         <th>Laki-Laki (Ribu)</th>
                         <th>Perempuan (Ribu)</th>
                         <th>Total (Ribu)</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr><td>0 - 4</td><td>142.6</td><td>134.4</td><td>277.1</td></tr>
+                <tbody> <tr><td>0 - 4</td><td>142.6</td><td>134.4</td><td>277.1</td></tr>
                     <tr><td>5 - 9</td><td>172.3</td><td>161.7</td><td>334.0</td></tr>
                     <tr><td>10 - 14</td><td>180.3</td><td>169.9</td><td>350.2</td></tr>
                     <tr><td>15 - 19</td><td>155.1</td><td>149.5</td><td>304.6</td></tr>
@@ -205,7 +219,6 @@
             </table>
         </div>
 
-        <!-- Bagian Grafik -->
         <div class="chart-container">
             <label for="chartType"><b>Pilih Jenis Grafik:</b></label><br>
             <select id="chartType">
@@ -224,65 +237,79 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+    // Variabel global untuk menyimpan instance grafik yang sedang aktif
+    // Dapat menghapus grafik lama sebelum menggambar yang baru
     let chartInstance = null;
 
+    // Fungsi untuk menampilkan/menggambar grafik
     function tampilkanGrafik() {
+        // Mengambil elemen canvas berdasarkan ID-nya
         const ctx = document.getElementById('chartPenduduk').getContext('2d');
+        // Mengambil nilai (value) yang dipilih dari dropdown (bar atau line)
         const chartType = document.getElementById('chartType').value;
 
+        // Data untuk label sumbu X (Kelompok Umur)
         const labels = ['0-4', '5-9', '10-14', '15-19', '20-24', '25-29', '30-34',
                         '35-39', '40-44', '45-49', '50-54', '55-59', '60-64',
                         '65-69', '70-74', '>75'];
 
+        // Data untuk dataset Laki-Laki (harus urut sesuai labels)
         const dataLaki = [142.6, 172.3, 180.3, 155.1, 175.0, 160.6, 146.5, 131.7, 149.8, 136.6, 118.0, 94.9, 71.1, 50.9, 35.3, 33.3];
+        // Data untuk dataset Perempuan (harus urut sesuai labels)
         const dataPerempuan = [134.4, 161.7, 169.9, 149.5, 166.9, 149.1, 139.5, 124.2, 146.2, 138.0, 118.0, 93.7, 71.7, 50.5, 34.4, 38.2];
 
-        if (chartInstance) chartInstance.destroy();
+        // Memeriksa apakah sudah ada grafik sebelumnya
+        if (chartInstance) {
+            chartInstance.destroy(); // Jika ada, hancurkan (hapus) grafik lama
+        }
 
+        // Membuat instance grafik baru menggunakan Chart.js
         chartInstance = new Chart(ctx, {
-            type: chartType,
+            type: chartType, // Tipe grafik (diambil dari dropdown: 'bar' atau 'line')
             data: {
-                labels: labels,
+                labels: labels, // Menetapkan label sumbu X
                 datasets: [
-                    {
+                    { // Dataset pertama (Laki-Laki)
                         label: 'Laki-Laki (ribu)',
                         data: dataLaki,
-                        backgroundColor: '#0D47A1',
-                        borderColor: '#0D47A1',
+                        backgroundColor: '#0D47A1', // Warna latar (untuk batang)
+                        borderColor: '#0D47A1', // Warna garis (untuk garis/border batang)
                         borderWidth: 1.2,
-                        barThickness: 12,
-                        fill: chartType === 'line' ? false : true
+                        barThickness: 12, // Ketebalan batang (opsional)
+                        fill: chartType === 'line' ? false : true // Jika tipe 'line', jangan isi area di bawahnya
                     },
-                    {
+                    { // Dataset kedua (Perempuan)
                         label: 'Perempuan (ribu)',
                         data: dataPerempuan,
-                        backgroundColor: '#E65100',
-                        borderColor: '#E65100',
+                        backgroundColor: '#E65100', // Warna latar (untuk batang)
+                        borderColor: '#E65100', // Warna garis (untuk garis/border batang)
                         borderWidth: 1.2,
-                        barThickness: 12,
-                        fill: chartType === 'line' ? false : true
+                        barThickness: 12, // Ketebalan batang (opsional)
+                        fill: chartType === 'line' ? false : true // Jika tipe 'line', jangan isi area di bawahnya
                     }
                 ]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                animation: { duration: 1300, easing: 'easeOutCubic' },
+            options: { // Opsi/konfigurasi untuk grafik
+                responsive: true, // Membuat grafik responsif
+                maintainAspectRatio: false, // Penting agar tinggi canvas bisa diatur via CSS
+                animation: { duration: 1300, easing: 'easeOutCubic' }, // Efek animasi
                 plugins: {
-                    title: {
+                    title: { // Konfigurasi judul grafik
                         display: true,
                         text: 'Distribusi Penduduk Berdasarkan Kelompok Umur dan Jenis Kelamin (2022)',
                         font: { size: 14, family: 'Inter', weight: 600 }
                     },
-                    legend: { position: 'top' }
+                    legend: { // Konfigurasi legenda (penanda Laki/Perempuan)
+                        position: 'top' // Posisi legenda di atas grafik
+                    }
                 },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: { display: true, text: 'Jumlah Penduduk (ribu)' }
+                scales: { // Konfigurasi sumbu (axes)
+                    y: { // Sumbu Y (vertikal)
+                        beginAtZero: true, // Mulai dari 0
+                        title: { display: true, text: 'Jumlah Penduduk (ribu)' } // Label sumbu Y
                     },
-                    x: {
-                        title: { display: true, text: 'Kelompok Umur' }
+                    x: { // Sumbu X (horizontal)
+                        title: { display: true, text: 'Kelompok Umur' } // Label sumbu X
                     }
                 }
             }
